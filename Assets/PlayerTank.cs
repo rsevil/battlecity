@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerTank : MonoBehaviour
 {
+    public GameObject bullet;
+    public Transform bulletSpawn;
+    
     private Rigidbody2D _rigidBody;
     private bool wasMovingHorizontally = false;
     private bool wasMovingVertically = false;
@@ -19,7 +18,10 @@ public class PlayerTank : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+        }
     }
 
     private void FixedUpdate()
